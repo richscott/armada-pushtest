@@ -1,4 +1,4 @@
-name: Release Armada
+name: Push Armada builds to Docker Hub
 
 on:
   workflow_call: {}
