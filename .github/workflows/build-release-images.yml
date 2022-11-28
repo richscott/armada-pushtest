@@ -8,6 +8,7 @@ on:
 jobs:
   test-and-build-images:
     if: github.repository_owner == 'richscott'
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: true
       matrix:
