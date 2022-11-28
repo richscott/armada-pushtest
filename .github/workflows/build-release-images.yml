@@ -2,8 +2,8 @@ name: Build Release Images
 
 on:
   push:
-    branches:
-      - master
+#    branches:
+#  - master
 
 jobs:
   test-and-build-images:
