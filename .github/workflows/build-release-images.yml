@@ -54,3 +54,6 @@ jobs:
     name: Push Docker Image artifacts to Docker Hub
     needs: test-and-build-images
     uses: ./.github/workflows/upload-docker-images.yml
+    secrets:
+      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+      DOCKERHUB_PASS: ${{ secrets.DOCKERHUB_PASS }}
