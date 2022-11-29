@@ -32,6 +32,8 @@ jobs:
             TAG="${{github.ref_name}}-$TAG_SUFFIX"
           fi
 
+          echo "Docker Hub user is ${DOCKERHUB_USER}"
+
           echo ${DOCKERHUB_PASS} | docker login -u ${DOCKERHUB_USER} --password-stdin
 
           IMAGES_TO_UPLOAD=(
