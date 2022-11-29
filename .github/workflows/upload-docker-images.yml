@@ -48,5 +48,7 @@ jobs:
               remote="richgross/${image}-dev:${TAG}"
               docker load -i docker-images/$image.tar.gz
               docker tag $image $remote
+              echo "after: docker tag $image $remote"
               docker push $remote
+              echo "after: docker push $remote"
           done
