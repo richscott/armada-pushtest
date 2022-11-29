@@ -46,10 +46,13 @@ jobs:
           )
           for image in "${IMAGES_TO_UPLOAD[@]}"; do
               remote="richgross/${image}-dev:${TAG}"
+
               docker load -i docker-images/$image.tar.gz
               echo "after: docker load -i docker-images/$image.tar.gz"
-              docker tag $image $remote
+
+              docker tag ${image}:latest $remote
               echo "after: docker tag $image $remote"
+
               docker push $remote
               echo "after: docker push $remote"
           done
