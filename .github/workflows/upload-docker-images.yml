@@ -34,10 +34,10 @@ jobs:
           echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
           IMAGES_TO_UPLOAD=(
-            "armada-server"
+            "armada"
             "armada-executor"
-            "armada-armadactl"
-            "armada-testsuite"
+            "armadactl"
+            "testsuite"
             "armada-lookout"
             "armada-lookout-ingester"
             "armada-event-ingester"
