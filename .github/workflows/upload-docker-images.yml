@@ -17,9 +17,6 @@ jobs:
           tar xf docker-images.tar.gz
           rm docker-images.tar.gz
       - name: Upload images to docker
-        #env:
-        #    DOCKERHUB_PASS: ${{ secrets.DOCKERHUB_PASS }}
-        #    DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
         run: |
           # Note(JayF): All the offical docker actions for uploading these
           # containers also assume you need to rebuild them. That makes them
@@ -29,7 +26,7 @@ jobs:
           if [ "${{github.ref_name}}" = "master" ]; then
             TAG="$TAG_SUFFIX"
           else
-            TAG="${{github.ref_name}}-$TAG_SUFFIX"
+            TAG="${{ github.ref_name }}-$TAG_SUFFIX"
           fi
 
           echo "Docker Hub user is ${{ secrets.DOCKERHUB_USER }}"
