@@ -1,4 +1,4 @@
-name: Push Armada builds to Docker Hub
+name: Push Armada builds to Docker Hub take 2
 
 on:
   workflow_call: {}
