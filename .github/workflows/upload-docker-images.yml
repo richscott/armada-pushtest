@@ -34,7 +34,7 @@ jobs:
 
           echo "Docker Hub user is ${DOCKERHUB_USER}"
 
-          echo "${DOCKERHUB_PASS}" | docker login -u ${DOCKERHUB_USER} --password-stdin
+          echo "${env.DOCKERHUB_PASS}" | docker login -u ${env.DOCKERHUB_USER} --password-stdin
 
           IMAGES_TO_UPLOAD=(
             "armada-server"
