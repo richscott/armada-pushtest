@@ -21,7 +21,7 @@ jobs:
           # Note(JayF): All the offical docker actions for uploading these
           # containers also assume you need to rebuild them. That makes them
           # ill-suited for our workflow.
-          TAG_SUFFIX=$(${{ github.sha }} | sed 's|/|-|g')
+          TAG_SUFFIX=$(echo "${{ github.sha }}" | sed 's|/|-|g')
 
           if [ "${{github.ref_name}}" = "master" ]; then
             TAG="$TAG_SUFFIX"
