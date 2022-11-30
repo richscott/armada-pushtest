@@ -29,8 +29,6 @@ jobs:
             TAG="${{ github.ref_name }}-$TAG_SUFFIX"
           fi
 
-          echo "Docker Hub user is ${{ secrets.DOCKERHUB_USER }}"
-
           echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
           IMAGES_TO_UPLOAD=(
@@ -46,13 +44,7 @@ jobs:
           )
           for image in "${IMAGES_TO_UPLOAD[@]}"; do
               remote="richgross/${image}-dev:${TAG}"
-
               docker load -i docker-images/$image.tar.gz
-              echo "after: docker load -i docker-images/$image.tar.gz"
-
               docker tag ${image}:latest $remote
-              echo "after: docker tag $image $remote"
-
               docker push $remote
-              echo "after: docker push $remote"
           done
